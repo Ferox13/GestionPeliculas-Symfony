@@ -11,7 +11,7 @@ final class HomeController extends AbstractController
 {
     private $peliculaRepository;
 
-    public function buscarPeliculas(PeliculaRepository $peliculaRepository)
+    public function __construct(PeliculaRepository $peliculaRepository)
     {
         $this->peliculaRepository = $peliculaRepository;
     }
@@ -21,9 +21,16 @@ final class HomeController extends AbstractController
     {
         $peliculas = $this->peliculaRepository->findAll();
 
+        $mensaje = null;
+        if (empty($peliculas)) {
+            // La lista está vacía, puedes manejarlo como desees
+            $mensaje = 'No hay películas disponibles.';
+        }
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'peliculas' => $peliculas,
+            'mensaje' => $mensaje,
         ]);
     }
 }
