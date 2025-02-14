@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lista de Películas{% endblock %}
+
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Películas</title>
+</head>
+<body>
+    <h1>{{ controller_name }}</h1>
+    <ul>
+        {% for pelicula in peliculas %}
+            <li>{{ pelicula.nombre }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock %}
