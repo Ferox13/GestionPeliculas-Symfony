@@ -21,12 +21,28 @@ final class HomeController extends AbstractController
     public function index(Request $request): Response
     {
         $titulo = $request->query->get('titulo');
+        $director = $request->query->get('director');
+        $genero = $request->query->get('genero');
+        $duracion = $request->query->get('duracion');
+        $valoracion = $request->query->get('valoracion');
 
         $query = $this->peliculaRepository->createQueryBuilder('p');
-        if (!empty($titulo)) {
-            $query->where('p.titulo LIKE :titulo')
-               ->setParameter('titulo', '%' . $titulo . '%');
+
+        $filtros = [
+            'titulo'    => $titulo,
+            'director'  => $director,
+            'genero'    => $genero,
+            'duracion'  => $duracion,
+            'valoracion'=> $valoracion,
+        ];
+
+        foreach ($filtros as $key => $value) {
+            if (!empty($value)) {
+                $query->andWhere("p.$key LIKE :$key")
+                      ->setParameter($key, '%' . $value . '%');
+            }
         }
+
         $peliculas = $query->getQuery()->getResult();
 
         $mensaje = null;
