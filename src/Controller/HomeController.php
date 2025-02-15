@@ -55,4 +55,18 @@ final class HomeController extends AbstractController
             'mensaje' => $mensaje,
         ]);
     }
+
+    // Añade un nuevo método para el detalle de la película
+    #[Route('/detalle/{id}', name: 'detalle_pelicula')]
+    public function detallePelicula(int $id): Response
+    {
+        $pelicula = $this->peliculaRepository->find($id);
+        if (!$pelicula) {
+            throw $this->createNotFoundException('La película no existe');
+        }
+
+        return $this->render('detalle_pelicula/index.html.twig', [
+            'pelicula' => $pelicula,
+        ]);
+    }
 }

@@ -44,19 +44,21 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
                 {% for pelicula in peliculas %}
                     <div class="col d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="{{ pelicula.poster }}" class="card-img-top" alt="{{ pelicula.titulo }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ pelicula.titulo }}</h5>
-                                <p class="card-text">
-                                    <strong>Género:</strong> {{ pelicula.genero }}<br>
-                                    <strong>Director:</strong> {{ pelicula.director }}<br>
-                                    <strong>Duración:</strong> {{ pelicula.duracion }}<br>
-                                    <strong>Valoración:</strong> {{ pelicula.valoracion }}<br>
-                                    <strong>Estreno:</strong> {{ pelicula.estreno }}
-                                </p>
+                        <a href="{{ path('detalle_pelicula', {'id': pelicula.id}) }}" class="text-decoration-none text-reset">
+                            <div class="card" style="width: 18rem;">
+                                <img src="{{ pelicula.poster }}" class="card-img-top" alt="{{ pelicula.titulo }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ pelicula.titulo }}</h5>
+                                    <p class="card-text">
+                                        <strong>Género:</strong> {{ pelicula.genero }}<br>
+                                        <strong>Director:</strong> {{ pelicula.director }}<br>
+                                        <strong>Duración:</strong> {{ pelicula.duracion }}<br>
+                                        <strong>Valoración:</strong> {{ pelicula.valoracion }}<br>
+                                        <strong>Estreno:</strong> {{ pelicula.estreno }}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 {% endfor %}
             </div>

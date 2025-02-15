@@ -12,7 +12,6 @@ final class DetallePeliculaController extends AbstractController
     public function index(): Response
     {
         return $this->render('detalle_pelicula/index.html.twig', [
-            'controller_name' => 'DetallePeliculaController',
         ]);
     }
 }
