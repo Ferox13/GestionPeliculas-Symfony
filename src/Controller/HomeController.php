@@ -44,16 +44,17 @@ final class HomeController extends AbstractController
                       ->setParameter($key, '%' . $value . '%');
             }
         }
-        error_log("Valor de estreno: " . $estreno);
         dump($estreno);
 
-        // Asegúrate de usar el formato "Y-m-d" para crear el objeto DateTime ya que el input del calendario lo envía en ese formato.
         if (!empty($estreno)) {
-            error_log("Valor de estreno: " . $estreno);
             $estrenoDate = \DateTime::createFromFormat('Y-m-d', $estreno);
             if ($estrenoDate) {
-                $query->andWhere("p.estreno = :estreno")
-                      ->setParameter('estreno', $estrenoDate);
+                $fechaCompleta = $estrenoDate->format('Y-m-d H:i:s');
+                //Asigna el primer elemento del array a fechaSInHora
+                list($fechaSinHora,) = explode(' ', $fechaCompleta);
+                // Usamos LIKE para buscar todas las entradas que empiecen por la fecha filtrada.
+                $query->andWhere("p.estreno LIKE :estreno")
+                      ->setParameter('estreno', $fechaSinHora . '%');
             }
         }
 
