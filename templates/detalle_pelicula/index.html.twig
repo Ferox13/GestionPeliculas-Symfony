@@ -18,7 +18,10 @@
                     <p class="card-text"><strong>Director:</strong> {{ pelicula.director }}</p>
                     <p class="card-text"><strong>Duración:</strong> {{ pelicula.duracion }}</p>
                     <p class="card-text"><strong>Valoración:</strong> {{ pelicula.valoracion }}</p>
-                    <p class="card-text"><strong>Estreno:</strong> {{ pelicula.estreno }}</p>
+                    <p class="card-text">
+                        <strong>Estreno:</strong> 
+                        {{ pelicula.estreno ? pelicula.estreno|date('Y-m-d') : 'N/A' }}
+                    </p>
                     <a href="{{ path('app_home') }}" class="btn btn-primary mt-3">Volver</a>
                     <a href="{{ path('editar_pelicula', {'id': pelicula.id}) }}" class="btn btn-secondary mt-3 ms-2">Editar</a>
                     <form method="post" action="{{ path('eliminar_pelicula', {'id': pelicula.id}) }}" onsubmit="return confirm('¿Estás seguro de eliminar esta película?');" class="d-inline">

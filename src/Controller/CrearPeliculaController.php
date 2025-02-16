@@ -21,7 +21,8 @@ final class CrearPeliculaController extends AbstractController
             $pelicula->setGenero($request->request->get('genero'));
             $pelicula->setDuracion($request->request->get('duracion'));
             $pelicula->setValoracion($request->request->get('valoracion'));
-            $pelicula->setEstreno($request->request->get('estreno'));
+            $estreno = \DateTime::createFromFormat('Y-m-d', $request->request->get('estreno'));
+            $pelicula->setEstreno($estreno);
             $pelicula->setPoster($request->request->get('poster'));
 
             $em->persist($pelicula);

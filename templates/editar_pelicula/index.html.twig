@@ -22,15 +22,15 @@
         </div>
         <div class="mb-3">
             <label for="duracion" class="form-label">Duración</label>
-            <input type="text" class="form-control" id="duracion" name="duracion" value="{{ pelicula.duracion }}">
+            <input type="number" class="form-control" id="duracion" name="duracion" value="{{ pelicula.duracion }}">
         </div>
         <div class="mb-3">
             <label for="valoracion" class="form-label">Valoración</label>
-            <input type="text" class="form-control" id="valoracion" name="valoracion" value="{{ pelicula.valoracion }}">
+            <input type="number" class="form-control" id="valoracion" name="valoracion" value="{{ pelicula.valoracion }}">
         </div>
         <div class="mb-3">
             <label for="estreno" class="form-label">Estreno</label>
-            <input type="text" class="form-control" id="estreno" name="estreno" value="{{ pelicula.estreno }}">
+            <input type="date" class="form-control" id="estreno" name="estreno" value="{{ pelicula.estreno ? pelicula.estreno|date('Y-m-d') : '' }}">
         </div>
         <div class="mb-3">
             <label for="poster" class="form-label">URL del Poster</label>
