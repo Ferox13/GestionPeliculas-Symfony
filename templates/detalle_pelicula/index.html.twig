@@ -21,7 +21,9 @@
                     <p class="card-text"><strong>Estreno:</strong> {{ pelicula.estreno }}</p>
                     <a href="{{ path('app_home') }}" class="btn btn-primary mt-3">Volver</a>
                     <a href="{{ path('editar_pelicula', {'id': pelicula.id}) }}" class="btn btn-secondary mt-3 ms-2">Editar</a>
-
+                    <form method="post" action="{{ path('eliminar_pelicula', {'id': pelicula.id}) }}" onsubmit="return confirm('¿Estás seguro de eliminar esta película?');" class="d-inline">
+                        <button type="submit" class="btn btn-danger mt-3 ms-2">Eliminar</button>
+                    </form>
                 </div>
             </div>
         </div>
