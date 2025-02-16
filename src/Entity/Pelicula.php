@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\PeliculaRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PeliculaRepository::class)]
@@ -26,13 +27,13 @@ class Pelicula
     private ?string $poster = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $valoracion = null;
+    private ?float $valoracion = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $duracion = null;
+    private ?float $duracion = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $estreno = null;
+    private ?DateTime $estreno = null;
 
     public function getId(): ?int
     {
@@ -44,7 +45,7 @@ class Pelicula
         return $this->titulo;
     }
 
-    public function setTitulo(string $titulo): static
+    public function setTitulo(string $titulo): self
     {
         $this->titulo = $titulo;
 
@@ -56,7 +57,7 @@ class Pelicula
         return $this->director;
     }
 
-    public function setDirector(?string $director): static
+    public function setDirector(?string $director): self
     {
         $this->director = $director;
 
@@ -68,7 +69,7 @@ class Pelicula
         return $this->genero;
     }
 
-    public function setGenero(string $genero): static
+    public function setGenero(string $genero): self
     {
         $this->genero = $genero;
 
@@ -80,43 +81,43 @@ class Pelicula
         return $this->poster;
     }
 
-    public function setPoster(?string $poster): static
+    public function setPoster(?string $poster): self
     {
         $this->poster = $poster;
 
         return $this;
     }
 
-    public function getValoracion(): ?string
+    public function getValoracion(): ?float
     {
         return $this->valoracion;
     }
 
-    public function setValoracion(string $valoracion): static
+    public function setValoracion(float $valoracion): self
     {
         $this->valoracion = $valoracion;
 
         return $this;
     }
 
-    public function getDuracion(): ?string
+    public function getDuracion(): ?float
     {
         return $this->duracion;
     }
 
-    public function setDuracion(string $duracion): static
+    public function setDuracion(float $duracion): self
     {
         $this->duracion = $duracion;
 
         return $this;
     }
 
-    public function getEstreno(): ?string
+    public function getEstreno(): ?DateTime
     {
         return $this->estreno;
     }
 
-    public function setEstreno(string $estreno): static
+    public function setEstreno(DateTime $estreno): self
     {
         $this->estreno = $estreno;
 

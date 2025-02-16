@@ -32,6 +32,9 @@
                 <input type="text" name="valoracion" class="form-control" placeholder="Valoración" value="{{ app.request.get('valoracion') }}">
             </div>
             <div class="col-auto">
+                <input type="date" name="estreno" class="form-control" placeholder="Estreno" value="{{ app.request.get('estreno') }}">
+            </div>
+            <div class="col-auto">
                 <button type="submit" class="btn btn-primary">Filtrar</button>
             </div>
              <div class="col-auto">
@@ -55,9 +58,9 @@
                                     <p class="card-text">
                                         <strong>Género:</strong> {{ pelicula.genero }}<br>
                                         <strong>Director:</strong> {{ pelicula.director }}<br>
-                                        <strong>Duración:</strong> {{ pelicula.duracion }}<br>
+                                        <strong>Duración:</strong> {{ pelicula.duracion }} minutos<br>
                                         <strong>Valoración:</strong> {{ pelicula.valoracion }}<br>
-                                        <strong>Estreno:</strong> {{ pelicula.estreno }}
+                                        <strong>Estreno:</strong> {{ pelicula.estreno ? pelicula.estreno|date('Y-m-d') : 'N/A' }}
                                     </p>
                                 </div>
                             </div>
