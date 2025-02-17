@@ -52,7 +52,6 @@ final class HomeController extends AbstractController
                 $fechaCompleta = $estrenoDate->format('Y-m-d H:i:s');
                 //Asigna el primer elemento del array a fechaSInHora
                 list($fechaSinHora,) = explode(' ', $fechaCompleta);
-                // Usamos LIKE para buscar todas las entradas que empiecen por la fecha filtrada.
                 $query->andWhere("p.estreno LIKE :estreno")
                       ->setParameter('estreno', $fechaSinHora . '%');
             }
