@@ -3,6 +3,20 @@
 ## Autor
  Fernando Rodríguez Rodríguez
 
+## Credenciales y rutas
+### Login
+- email: test@email.com
+- contraseña: 123456
+
+### Rutas
+- /login
+- /logout
+- /register
+- /crear/pelicula
+- /editar/pelicula/{id}
+- /eliminar/pelicula/{id}
+
+
 ## Descripción
 Este proyecto consiste en el desarrollo de una aplicación CRUD utilizando el framework Symfony. La aplicación permite realizar operaciones de creación, lectura, actualización y eliminación sobre una entidad, seleccionada previamente de una lista de temas consensuados con el docente y el resto de los alumnos.
 
