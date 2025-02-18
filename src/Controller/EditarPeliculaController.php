@@ -13,8 +13,8 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 final class EditarPeliculaController extends AbstractController
 {
-    #[Route('/editar/pelicula/{id}', name: 'editar_pelicula')]
     #[IsGranted('ROLE_USER')]
+    #[Route('/editar/pelicula/{id}', name: 'editar_pelicula')]
 
     public function editarPelicula(
         Request $request,

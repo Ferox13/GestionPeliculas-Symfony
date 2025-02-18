@@ -8,9 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 final class CrearPeliculaController extends AbstractController
 {
+    #[IsGranted('ROLE_USER')]
     #[Route('/crear/pelicula', name: 'crear_pelicula')]
     public function crearPelicula(Request $request, EntityManagerInterface $em): Response
     {

@@ -17,7 +17,7 @@ final class HomeController extends AbstractController
         $this->peliculaRepository = $peliculaRepository;
     }
 
-    #[Route('/home', name: 'app_home')]
+    #[Route('/', name: 'app_home')]
     public function index(Request $request): Response
     {
         $titulo         = $request->query->get('titulo');
