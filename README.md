@@ -1,4 +1,4 @@
-# Aplicación CRUD con Symfony
+# Aplicación CRUD con Symfony, Doctrine y Security
 
 ## Autor
  Fernando Rodríguez Rodríguez
