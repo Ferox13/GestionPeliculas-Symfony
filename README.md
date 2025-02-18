@@ -12,6 +12,7 @@
 - /login
 - /logout
 - /register
+- /
 - /crear/pelicula
 - /editar/pelicula/{id}
 - /eliminar/pelicula/{id}
